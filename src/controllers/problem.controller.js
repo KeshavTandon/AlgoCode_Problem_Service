@@ -1,13 +1,12 @@
 const { StatusCodes } = require("http-status-codes");
-const NotImplementedServerError = require("../errors/Notimplemented.error");
-
+const {NotImplemented} =require('../errors/notImplemented.error')
 function pingCheckController(req, res) {
   return res.json({ message: "Ping controller is up" });
 }
-function addProblem(req, res,next) {
+function addProblem(req, res, next) {
   try {
     //not implemented
-    throw new NotImplementedServerError("addProblem");
+    throw new NotImplemented('Problem Name')
   } catch (error) {
     next(error);
   }

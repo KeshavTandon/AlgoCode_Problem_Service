@@ -6,7 +6,7 @@ class InternalServerError extends BaseError {
   constructor(details) {
     super(
       "InternalServerError",
-      StatusCodes.NOT_IMPLEMENTED,
+      StatusCodes.InternalServerError,
       `Something went wrong`,
       details
     );
