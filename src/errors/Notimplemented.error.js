@@ -8,7 +8,7 @@ class NotImplemented extends BaseError {
       "NotImplemented",
       StatusCodes.NOT_IMPLEMENTED,
       `${methodName} Not Implemented`,
-      details
+      {}
     );
   }
 }
