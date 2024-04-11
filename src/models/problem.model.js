@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose =require('mongoose')
 
 const problemSchema = new mongoose.Schema({
   title: {
@@ -15,7 +15,7 @@ const problemSchema = new mongoose.Schema({
     required:[true,'Difficulty cannot be empty'],
     default:'easy'
   },
-  testcases:[
+  testCases:[
     {
         input:{
             type:String,
