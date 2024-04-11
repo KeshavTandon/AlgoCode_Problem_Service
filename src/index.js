@@ -4,7 +4,6 @@ const apiRouter = require("./routes");
 const { PORT } = require("./config/server.config");
 const errorHandler = require("./utils/errorHandler");
 const connectToDB = require("./config/db.config");
-const mongoose = require("mongoose");
 
 const app = express();
 
