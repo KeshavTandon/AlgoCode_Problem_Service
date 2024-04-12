@@ -5,14 +5,15 @@ class ProblemService {
     this.problemRepository = problemRepository;
   } //doubt
   async createProblem(problemData) {
-    try {
-      //1.Sanitize the description
-      problemData.description = SanitizeMarkdownContent(
-        problemData.description
-      );
-      const problem = this.problemRepository.createProblem(problemData); //doubt
-      return problem;
-    } catch (error) {}
+    //1.Sanitize the description
+    problemData.description = SanitizeMarkdownContent(problemData.description);
+    const problem = this.problemRepository.createProblem(problemData); //doubt
+    return problem;
+  }
+
+  async getAllProblems() {
+    const problems = this.problemRepository.getAllProblems();
+    return problems;
   }
 }
 

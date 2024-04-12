@@ -8,13 +8,34 @@ class ProblemRepository {
         title: problemData.title,
         description: problemData.description,
         testCases: problemData.testCases ? problemData.testCases : [],
-      });
+    });
       return problem;
     } catch (error) {
       console.log(error);
       throw error;
     }
   }
+
+  async getAllProblems(){
+    try {
+      const problems=Problem.find({});
+      return problems;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async getProblem(id){
+    try {
+      const response=Problem.findById(id);
+      return response;
+    } catch (error) {
+      
+    }
+  }
 }
+
+
 
 module.exports = ProblemRepository;

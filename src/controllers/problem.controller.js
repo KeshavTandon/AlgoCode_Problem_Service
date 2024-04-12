@@ -2,7 +2,6 @@ const { StatusCodes } = require("http-status-codes");
 const NotImplemented = require("../errors/notImplemented.error");
 const { ProblemService } = require("../services");
 const { ProblemRepository } = require("../repositories");
-
 const problemService = new ProblemService(new ProblemRepository()); //doubt
 
 function pingCheckController(req, res) {
@@ -29,10 +28,19 @@ function getProblem(req, res) {
   });
 }
 
-function getProblems(req, res) {
-  return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-    message: "Not Implemented",
-  });
+async function getProblems(req, res) {
+  try {
+    const response=await problemService.getAllProblems();
+    // console.log(response);
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      message: "Successfully fetched all the problems",
+      error: {},
+      data: response,
+    });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function deleteProblem(req, res) {
