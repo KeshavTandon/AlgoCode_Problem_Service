@@ -20,6 +20,16 @@ class ProblemService {
     const problem=this.problemRepository.getProblem(problemId);
     return problem;
   }
+
+  async deleteProblem(problemId){
+    const problem=this.problemRepository.deleteProblem(problemId);
+    return problem;
+  }
+
+  async updateProblem(problemId,data){
+    const problem=this.problemRepository.updateProblem(problemId,data);
+    return problem;
+  }
 }
 
 module.exports = ProblemService;
