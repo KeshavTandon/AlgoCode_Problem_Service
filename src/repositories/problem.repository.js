@@ -1,6 +1,7 @@
+const NotFound = require("../errors/notfound.error");
 const { Problem } = require("../models");
 
-//this will interact with dB and on receiving problem details it will create a new problem 
+//this will interact with dB and on receiving problem details it will create a new problem
 class ProblemRepository {
   async createProblem(problemData) {
     try {
@@ -8,7 +9,7 @@ class ProblemRepository {
         title: problemData.title,
         description: problemData.description,
         testCases: problemData.testCases ? problemData.testCases : [],
-    });
+      });
       return problem;
     } catch (error) {
       console.log(error);
@@ -16,9 +17,9 @@ class ProblemRepository {
     }
   }
 
-  async getAllProblems(){
+  async getAllProblems() {
     try {
-      const problems=Problem.find({});
+      const problems = Problem.find({});
       return problems;
     } catch (error) {
       console.log(error);
@@ -26,16 +27,18 @@ class ProblemRepository {
     }
   }
 
-  async getProblem(id){
+  async getProblem(id) {
     try {
-      const response=Problem.findById(id);
+      const response = await Problem.findById(id);
+      if (!response) {
+        throw new NotFound("Problem", id);
+      }
       return response;
     } catch (error) {
-      
+      console.log(error);
+      throw error;
     }
   }
 }
-
-
 
 module.exports = ProblemRepository;
