@@ -1,3 +1,4 @@
+const logger = require("../config/logger.config");
 const NotFound = require("../errors/notfound.error");
 const { Problem } = require("../models");
 
@@ -57,6 +58,7 @@ class ProblemRepository {
       const response=await Problem.findByIdAndUpdate(id,data);
       if(!response)
       {
+        logger.error(`Problem Not Found`);
         throw new NotFound('Problem',id);
       }
       return response;
