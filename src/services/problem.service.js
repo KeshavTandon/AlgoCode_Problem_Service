@@ -3,7 +3,7 @@ const SanitizeMarkdownContent = require("../utils/markdownSanitizer");
 class ProblemService {
   constructor(problemRepository) {
     this.problemRepository = problemRepository;
-  } //doubt
+  }
   async createProblem(problemData) {
     //1.Sanitize the description
     problemData.description = SanitizeMarkdownContent(problemData.description);

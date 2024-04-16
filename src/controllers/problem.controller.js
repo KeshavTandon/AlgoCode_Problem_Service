@@ -2,7 +2,7 @@ const { StatusCodes } = require("http-status-codes");
 const NotImplemented = require("../errors/notImplemented.error");
 const { ProblemService } = require("../services");
 const { ProblemRepository } = require("../repositories");
-const problemService = new ProblemService(new ProblemRepository()); //doubt
+const problemService = new ProblemService(new ProblemRepository());
 
 function pingCheckController(req, res) {
   return res.json({ message: "Ping controller xis up" });

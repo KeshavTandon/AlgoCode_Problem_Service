@@ -10,6 +10,7 @@ class ProblemRepository {
         title: problemData.title,
         description: problemData.description,
         testCases: problemData.testCases ? problemData.testCases : [],
+        difficulty:problemData.difficulty ? problemData.difficulty:"easy"
       });
       return problem;
     } catch (error) {
