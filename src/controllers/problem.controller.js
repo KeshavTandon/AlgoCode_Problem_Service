@@ -5,7 +5,7 @@ const { ProblemRepository } = require("../repositories");
 const problemService = new ProblemService(new ProblemRepository());
 
 function pingCheckController(req, res) {
-  return res.json({ message: "Ping controller xis up" });
+  return res.json({ message: "Ping controller is up" });
 }
 
 async function addProblem(req, res, next) {
